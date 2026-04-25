@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pradeep Kumar – LIC Insurance Advisor | Delhi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C8922A;
+    --gold-light: #F0C060;
+    --gold-pale: #FDF6E3;
+    --navy: #0A1B3D;
+    --navy-mid: #142754;
+    --navy-light: #1E3A6E;
+    --white: #FFFFFF;
+    --off-white: #F9F7F2;
+    --text: #1A1A2E;
+    --text-muted: #5A6580;
+    --border: #E8DFC8;
+    --green: #1A7F5A;
+    --red: #C0392B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--off-white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(10, 27, 61, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200,146,42,0.3);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+  }
+  .nav-brand { display: flex; align-items: center; gap: 12px; }
+  .nav-logo-badge {
+    width: 44px; height: 44px;
+    background: var(--gold);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900; font-size: 18px;
+    color: var(--navy);
+    letter-spacing: 1px;
+  }
+  .nav-title { color: var(--white); font-weight: 600; font-size: 1rem; line-height: 1.2; }
+  .nav-sub { color: var(--gold-light); font-size: 0.72rem; font-weight: 300; letter-spacing: 1.5px; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none; font-size: 0.88rem; font-weight: 500;
+    transition: color 0.2s;
+    letter-spacing: 0.3px;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-cta {
+    background: var(--gold); color: var(--navy);
+    padding: 9px 22px; border-radius: 6px;
+    font-weight: 700; font-size: 0.85rem;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 50%, #0D2247 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: center;
+    padding: 100px 2rem 60px;
+  }
+  .hero-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 80%, rgba(200,146,42,0.12) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(200,146,42,0.08) 0%, transparent 40%),
+      repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,0.015) 40px, rgba(255,255,255,0.015) 41px);
+    pointer-events: none;
+  }
+  .hero-content { max-width: 1200px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 420px; gap: 60px; align-items: center; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(200,146,42,0.15); border: 1px solid rgba(200,146,42,0.4);
+    color: var(--gold-light); padding: 6px 16px; border-radius: 100px;
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-badge::before { content: '✦'; font-size: 10px; }
+  .hero-h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 900; line-height: 1.1;
+    color: var(--white);
+    animation: fadeUp 0.6s ease 0.1s both;
+    margin-bottom: 1rem;
+  }
+  .hero-h1 span { color: var(--gold); }
+  .hero-desc {
+    color: rgba(255,255,255,0.72);
+    font-size: 1.08rem; line-height: 1.75; max-width: 540px;
+    animation: fadeUp 0.6s ease 0.2s both;
+    margin-bottom: 2.5rem;
+  }
+  .hero-stats {
+    display: flex; gap: 2.5rem;
+    animation: fadeUp 0.6s ease 0.3s both;
+    margin-bottom: 2.5rem;
+  }
+  .stat-item { text-align: center; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--gold); line-height: 1; }
+  .stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.55); letter-spacing: 0.5px; margin-top: 4px; }
+  .hero-btns { display: flex; gap: 1rem; animation: fadeUp 0.6s ease 0.4s both; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+    padding: 14px 32px; border-radius: 8px;
+    font-weight: 700; font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,146,42,0.4); }
+  .btn-secondary {
+    border: 1.5px solid rgba(255,255,255,0.3); color: var(--white);
+    padding: 14px 32px; border-radius: 8px;
+    font-weight: 500; font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* card in hero */
+  .hero-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(200,146,42,0.3);
+    border-radius: 20px;
+    padding: 2.5rem;
+    backdrop-filter: blur(20px);
+    animation: fadeUp 0.6s ease 0.5s both;
+  }
+  .advisor-avatar {
+    width: 88px; height: 88px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700;
+    color: var(--navy); margin: 0 auto 1.2rem;
+    border: 3px solid rgba(255,255,255,0.2);
+  }
+  .advisor-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--white); text-align: center; margin-bottom: 4px; }
+  .advisor-title { font-size: 0.82rem; color: var(--gold-light); text-align: center; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 1.5rem; }
+  .contact-row {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.85); font-size: 0.88rem;
+  }
+  .contact-row:last-child { border-bottom: none; }
+  .contact-icon {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: rgba(200,146,42,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .contact-label { font-size: 0.72rem; color: var(--gold-light); display: block; margin-bottom: 2px; }
+  .agency-code { text-align: center; margin-top: 1.2rem; padding: 10px; background: rgba(200,146,42,0.12); border-radius: 8px; color: var(--gold-light); font-size: 0.82rem; }
+
+  /* ── SECTION BASE ── */
+  section { padding: 80px 2rem; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-badge {
+    display: inline-block;
+    background: var(--gold); color: var(--navy);
+    padding: 4px 14px; border-radius: 4px;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 800; line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .section-sub { color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; max-width: 600px; margin-bottom: 3rem; }
+
+  /* ── WHY US ── */
+  #why { background: var(--navy); }
+  #why .section-title { color: var(--white); }
+  #why .section-sub { color: rgba(255,255,255,0.6); }
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+  .why-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(200,146,42,0.2);
+    border-radius: 16px; padding: 2rem;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .why-card:hover { transform: translateY(-4px); border-color: var(--gold); }
+  .why-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+  .why-card h3 { color: var(--white); font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .why-card p { color: rgba(255,255,255,0.55); font-size: 0.88rem; line-height: 1.65; }
+
+  /* ── PLANS ── */
+  #plans { background: var(--off-white); }
+  .plans-filter {
+    display: flex; gap: 0.75rem; flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+  .filter-btn {
+    padding: 8px 20px; border-radius: 100px;
+    border: 1.5px solid var(--border); background: var(--white);
+    color: var(--text-muted); font-size: 0.85rem; font-weight: 500;
+    cursor: pointer; transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .filter-btn.active, .filter-btn:hover { background: var(--navy); border-color: var(--navy); color: var(--white); }
+  .plans-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; }
+  .plan-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: none;
+  }
+  .plan-card.visible { display: flex; flex-direction: column; }
+  .plan-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(10,27,61,0.1); }
+  .plan-header { padding: 1.4rem 1.6rem 1rem; border-bottom: 1px solid var(--border); }
+  .plan-cat {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 4px; display: inline-block; margin-bottom: 0.7rem;
+  }
+  .cat-endowment { background: #EBF5EC; color: var(--green); }
+  .cat-term { background: #FEF3F2; color: var(--red); }
+  .cat-whole { background: #EEF2FF; color: #4F46E5; }
+  .cat-moneyback { background: #FFF7ED; color: #C2410C; }
+  .cat-pension { background: #F0FDF4; color: #166534; }
+  .cat-ulip { background: #F5F3FF; color: #7C3AED; }
+  .cat-micro { background: #FFF1F2; color: #BE123C; }
+  .plan-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .plan-num { font-size: 0.78rem; color: var(--text-muted); }
+  .plan-body { padding: 1.2rem 1.6rem; flex: 1; }
+  .plan-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.1rem; }
+  .plan-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-bottom: 1rem; }
+  .spec { background: var(--off-white); border-radius: 8px; padding: 8px 10px; }
+  .spec-label { font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 2px; }
+  .spec-val { font-size: 0.88rem; font-weight: 600; color: var(--navy); }
+  .plan-highlights { display: flex; flex-direction: column; gap: 4px; }
+  .highlight { font-size: 0.82rem; color: var(--text-muted); display: flex; align-items: flex-start; gap: 6px; }
+  .highlight::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+  .plan-footer { padding: 1rem 1.6rem; border-top: 1px solid var(--border); }
+  .plan-enquire {
+    width: 100%; padding: 10px;
+    background: var(--navy); color: var(--white);
+    border: none; border-radius: 8px;
+    font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 600;
+    cursor: pointer; transition: background 0.2s;
+    text-decoration: none; display: block; text-align: center;
+  }
+  .plan-enquire:hover { background: var(--gold); color: var(--navy); }
+
+  /* ── RETURNS INFO ── */
+  #returns { background: var(--navy); }
+  #returns .section-title { color: var(--white); }
+  #returns .section-sub { color: rgba(255,255,255,0.6); }
+  .returns-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .returns-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(200,146,42,0.25);
+    border-radius: 16px; padding: 2rem;
+  }
+  .returns-card h3 { color: var(--gold-light); font-size: 1.1rem; font-weight: 600; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 8px; }
+  .returns-table { width: 100%; border-collapse: collapse; }
+  .returns-table th {
+    font-size: 0.75rem; color: rgba(255,255,255,0.5);
+    text-align: left; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);
+    letter-spacing: 0.5px;
+  }
+  .returns-table td {
+    padding: 10px 0; font-size: 0.88rem; color: rgba(255,255,255,0.85);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .returns-table td:last-child { color: var(--gold); font-weight: 600; text-align: right; }
+  .returns-table tr:last-child td { border-bottom: none; }
+
+  /* ── HOW IT WORKS ── */
+  #how { background: var(--gold-pale); }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0; position: relative; }
+  .steps::before {
+    content: ''; position: absolute;
+    top: 36px; left: 12%; right: 12%;
+    height: 2px; background: var(--border);
+  }
+  .step { text-align: center; padding: 1.5rem 1rem; position: relative; }
+  .step-num {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: var(--navy); color: var(--gold);
+    font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.2rem; position: relative; z-index: 1;
+    border: 3px solid var(--gold-pale);
+  }
+  .step h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--navy); }
+  .step p { font-size: 0.84rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── TAX BENEFITS ── */
+  #tax { background: var(--white); }
+  .tax-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+  .tax-info h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--navy); }
+  .tax-info p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 1.5rem; }
+  .tax-list { display: flex; flex-direction: column; gap: 1rem; }
+  .tax-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 1rem; background: var(--off-white); border-radius: 12px;
+    border-left: 4px solid var(--gold);
+  }
+  .tax-item .icon { font-size: 1.4rem; flex-shrink: 0; }
+  .tax-item h4 { font-size: 0.92rem; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
+  .tax-item p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.55; margin: 0; }
+  .tax-visual {
+    background: var(--navy); border-radius: 16px; padding: 2rem; color: var(--white);
+  }
+  .tax-visual h4 { color: var(--gold-light); font-size: 1rem; font-weight: 600; margin-bottom: 1.5rem; }
+  .saving-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 0.88rem; }
+  .saving-row:last-child { border-bottom: none; }
+  .saving-row span:first-child { color: rgba(255,255,255,0.7); }
+  .saving-row span:last-child { color: var(--gold); font-weight: 600; }
+  .saving-total { background: rgba(200,146,42,0.2); border-radius: 10px; padding: 14px; display: flex; justify-content: space-between; margin-top: 1rem; }
+  .saving-total span:first-child { color: rgba(255,255,255,0.9); font-weight: 600; }
+  .saving-total span:last-child { color: var(--gold); font-weight: 700; font-size: 1.05rem; }
+
+  /* ── CONTACT ── */
+  #contact { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); position: relative; overflow: hidden; }
+  #contact::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 70% 50%, rgba(200,146,42,0.1) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  #contact .section-title { color: var(--white); }
+  #contact .section-sub { color: rgba(255,255,255,0.6); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .contact-info { display: flex; flex-direction: column; gap: 1.2rem; }
+  .contact-block {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 1.4rem; background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(200,146,42,0.25);
+    border-radius: 14px;
+  }
+  .cb-icon {
+    width: 48px; height: 48px; border-radius: 10px;
+    background: var(--gold); display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; flex-shrink: 0;
+  }
+  .cb-label { font-size: 0.72rem; color: var(--gold-light); letter-spacing: 1px; text-transform: uppercase; display: block; margin-bottom: 4px; }
+  .cb-val { color: var(--white); font-size: 1rem; font-weight: 500; text-decoration: none; }
+  .cb-val:hover { color: var(--gold-light); }
+  .cb-sub { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
+  /* Form */
+  .contact-form-wrap {
+    background: var(--white); border-radius: 20px; padding: 2.4rem;
+  }
+  .contact-form-wrap h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--navy); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1rem; }
+  .form-group label { font-size: 0.82rem; font-weight: 600; color: var(--text-muted); }
+  .form-group input, .form-group select, .form-group textarea {
+    padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 8px;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--text);
+    background: var(--off-white);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--navy); background: var(--white); }
+  .form-group textarea { resize: vertical; min-height: 80px; }
+  .form-submit {
+    width: 100%; padding: 13px; background: var(--navy); color: var(--white);
+    border: none; border-radius: 10px; font-family: 'DM Sans', sans-serif;
+    font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.2s;
+  }
+  .form-submit:hover { background: var(--gold); color: var(--navy); transform: translateY(-1px); }
+  .form-note { font-size: 0.78rem; color: var(--text-muted); text-align: center; margin-top: 0.8rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy); color: rgba(255,255,255,0.5);
+    padding: 2rem; text-align: center;
+    font-size: 0.85rem; border-top: 1px solid rgba(200,146,42,0.2);
+  }
+  footer strong { color: var(--gold-light); }
+
+  /* ── FLOATER ── */
+  .whatsapp-float {
+    position: fixed; bottom: 28px; right: 28px; z-index: 999;
+    width: 58px; height: 58px; border-radius: 50%;
+    background: #25D366; color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+    text-decoration: none; transition: transform 0.2s;
+  }
+  .whatsapp-float:hover { transform: scale(1.08); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero-content { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .returns-grid, .tax-grid, .contact-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; }
+    .steps::before { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo-badge">LIC</div>
+    <div>
+      <div class="nav-title">Pradeep Kumar</div>
+      <div class="nav-sub">Insurance Advisor · Delhi</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#plans">All Plans</a></li>
+    <li><a href="#returns">Returns</a></li>
+    <li><a href="#tax">Tax Benefits</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:9582278763" class="nav-cta">📞 Call Now</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-badge">LIC Authorised Insurance Advisor · Delhi</div>
+      <h1 class="hero-h1">Secure Your Future<br>with <span>LIC of India</span></h1>
+      <p class="hero-desc">
+        Get personalised guidance on every LIC plan — from term insurance to endowments, pensions, ULIPs and more. Expert advice, transparent comparisons, and lifelong support from your trusted advisor.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">25+</div>
+          <div class="stat-label">Years LIC Trust</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">40+</div>
+          <div class="stat-label">Active Plans</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">98%</div>
+          <div class="stat-label">Claim Settlement</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">₹0</div>
+          <div class="stat-label">Advisory Fee</div>
+        </div>
+      </div>
+      <div class="hero-btns">
+        <a href="#plans" class="btn-primary">📋 Explore All Plans</a>
+        <a href="#contact" class="btn-secondary">Get Free Consultation →</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="advisor-avatar">PK</div>
+      <div class="advisor-name">Pradeep Kumar</div>
+      <div class="advisor-title">LIC Insurance Advisor</div>
+      <div class="contact-row">
+        <div class="contact-icon">📱</div>
+        <div>
+          <span class="contact-label">Mobile</span>
+          <a href="tel:9582278763" style="color:inherit;text-decoration:none">9582278763</a>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <span class="contact-label">Email</span>
+          <a href="mailto:pradeeplive49@gmail.com" style="color:inherit;text-decoration:none;font-size:0.82rem">pradeeplive49@gmail.com</a>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">🏢</div>
+        <div>
+          <span class="contact-label">Branch Office</span>
+          <span>LIC Of India Branch-123  Adarsh Nagar, Near TVS Showroom Metro Station-Adarsh Nagar, Metro Station A-2, near Adarsh Nagar, Delhi, 110033</span>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">🏠</div>
+        <div>
+          <span class="contact-label">Residence</span>
+          <span style="font-size:0.8rem">H.No. 947, St. No. 28, B-Block, Sant Nagar, Burari, Delhi-110084</span>
+        </div>
+      </div>
+      <div class="agency-code">Agency Code: 12979-123</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section id="why">
+  <div class="container">
+    <span class="section-badge">Why Choose Us</span>
+    <h2 class="section-title" style="color:var(--white)">Your Trusted LIC Partner<br>in Delhi</h2>
+    <p class="section-sub">Personal, honest guidance at every step — from plan selection to claim settlement.</p>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon">🛡️</div><h3>Government Backed</h3><p>LIC is 100% owned by the Government of India — your money is the safest it can be, backed by sovereign guarantee.</p></div>
+      <div class="why-card"><div class="why-icon">📊</div><h3>Expert Comparison</h3><p>We compare 40+ plans across categories to find the one that fits your age, income, risk appetite and goals.</p></div>
+      <div class="why-card"><div class="why-icon">⚡</div><h3>Fast Claim Support</h3><p>LIC's 98%+ claim settlement ratio. We guide your family through every step of the claim process at no extra charge.</p></div>
+      <div class="why-card"><div class="why-icon">💰</div><h3>Tax Savings</h3><p>Premium under 80C (₹1.5L), maturity under 10(10D) — your LIC policy can save you ₹46,800+ in tax every year.</p></div>
+      <div class="why-card"><div class="why-icon">🤝</div><h3>Free Consultation</h3><p>No advisory fee, no hidden charges. We earn only the agency commission from LIC — your advice is always free.</p></div>
+      <div class="why-card"><div class="why-icon">📍</div><h3>Local Delhi Advisor</h3><p>Based in Model Town & Burari, Delhi. Home visits available. We speak Hindi, English, and understand your financial reality.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ALL PLANS -->
+<section id="plans">
+  <div class="container">
+    <span class="section-badge">All Plans</span>
+    <h2 class="section-title">Complete LIC Plan Directory</h2>
+    <p class="section-sub">Every active LIC plan with key details. Filter by category to find your ideal policy.</p>
+    <div class="plans-filter">
+      <button class="filter-btn active" onclick="filterPlans('all', this)">All Plans</button>
+      <button class="filter-btn" onclick="filterPlans('endowment', this)">Endowment</button>
+      <button class="filter-btn" onclick="filterPlans('term', this)">Term / Protection</button>
+      <button class="filter-btn" onclick="filterPlans('whole', this)">Whole Life</button>
+      <button class="filter-btn" onclick="filterPlans('moneyback', this)">Money Back</button>
+      <button class="filter-btn" onclick="filterPlans('pension', this)">Pension</button>
+      <button class="filter-btn" onclick="filterPlans('ulip', this)">ULIP</button>
+      <button class="filter-btn" onclick="filterPlans('micro', this)">Micro Insurance</button>
+    </div>
+    <div class="plans-grid" id="plansGrid"></div>
+  </div>
+</section>
+
+<!-- RETURNS INFO -->
+<section id="returns">
+  <div class="container">
+    <span class="section-badge">Investment Returns</span>
+    <h2 class="section-title" style="color:var(--white)">Expected Returns &amp; Maturity</h2>
+    <p class="section-sub">Indicative returns based on LIC bonus declarations and policy type. Actual may vary.</p>
+    <div class="returns-grid">
+      <div class="returns-card">
+        <h3>📈 Endowment Plans — Indicative Returns</h3>
+        <table class="returns-table">
+          <thead><tr><th>Plan</th><th>Term</th><th>Effective Yield</th></tr></thead>
+          <tbody>
+            <tr><td>New Jeevan Anand</td><td>21 yrs</td><td>~5.5–6%</td></tr>
+            <tr><td>Jeevan Labh</td><td>16 yrs</td><td>~6–6.5%</td></tr>
+            <tr><td>Jeevan Lakshya</td><td>18 yrs</td><td>~5.5–6%</td></tr>
+            <tr><td>Bima Jyoti</td><td>10–20 yrs</td><td>~5.8–6.2%</td></tr>
+            <tr><td>Nav Jeevan Shree</td><td>12–25 yrs</td><td>~6–6.5%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="returns-card">
+        <h3>💵 Money-Back Plans — Cash Flow</h3>
+        <table class="returns-table">
+          <thead><tr><th>Plan</th><th>Survival Benefit</th><th>Yield</th></tr></thead>
+          <tbody>
+            <tr><td>New Money Back 20yr</td><td>20% every 5 yrs</td><td>~5–5.5%</td></tr>
+            <tr><td>New Money Back 25yr</td><td>15% every 5 yrs</td><td>~5.2–5.8%</td></tr>
+            <tr><td>Jeevan Tarun</td><td>5–15% annually</td><td>~5.5%</td></tr>
+            <tr><td>Bima Bachat</td><td>Periodic payouts</td><td>~5–5.5%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="returns-card">
+        <h3>🌱 ULIP Plans — Market-Linked Returns</h3>
+        <table class="returns-table">
+          <thead><tr><th>Plan</th><th>Fund Type</th><th>Historical Return</th></tr></thead>
+          <tbody>
+            <tr><td>Index Plus</td><td>Equity Index</td><td>10–14% p.a.</td></tr>
+            <tr><td>SIIP</td><td>Equity / Balanced</td><td>8–13% p.a.</td></tr>
+            <tr><td>Nivesh Plus</td><td>Equity / Debt</td><td>8–12% p.a.</td></tr>
+            <tr><td>New Endowment Plus</td><td>Balanced</td><td>7–11% p.a.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="returns-card">
+        <h3>🏦 Pension Plans — Regular Income</h3>
+        <table class="returns-table">
+          <thead><tr><th>Plan</th><th>Annuity Type</th><th>Payout Rate</th></tr></thead>
+          <tbody>
+            <tr><td>Jeevan Shanti</td><td>Immediate / Deferred</td><td>6–7.5% p.a.</td></tr>
+            <tr><td>Jeevan Akshay VII</td><td>Immediate</td><td>5.5–7% p.a.</td></tr>
+            <tr><td>New Jeevan Nidhi</td><td>Deferred Annuity</td><td>5–6.5% p.a.</td></tr>
+            <tr><td>PM Vaya Vandana</td><td>Senior Citizens</td><td>7.4% p.a.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p style="color:rgba(255,255,255,0.4); font-size:0.78rem; margin-top:1.5rem">* Returns are illustrative. Actual returns depend on bonus declarations, policy term, and fund performance. Consult your advisor for personalized projections.</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container">
+    <span class="section-badge">Process</span>
+    <h2 class="section-title">How To Get Started</h2>
+    <p class="section-sub">From your first call to policy issuance — we handle everything.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><h3>Free Consultation</h3><p>Call, WhatsApp or fill the form. Share your age, income and goals — no obligation.</p></div>
+      <div class="step"><div class="step-num">2</div><h3>Plan Recommendation</h3><p>We compare all LIC plans and present the best 2–3 options tailored to your profile.</p></div>
+      <div class="step"><div class="step-num">3</div><h3>Documents & Proposal</h3><p>We collect documents, fill your proposal form, and handle all paperwork for you.</p></div>
+      <div class="step"><div class="step-num">4</div><h3>Policy Issuance</h3><p>Your policy bond is issued and delivered. Premium receipt and coverage start immediately.</p></div>
+      <div class="step"><div class="step-num">5</div><h3>Ongoing Service</h3><p>Premium reminders, bonus statements, loan assistance, maturity claims — we're always here.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TAX BENEFITS -->
+<section id="tax">
+  <div class="container">
+    <span class="section-badge">Tax Benefits</span>
+    <h2 class="section-title">Save Tax with LIC</h2>
+    <p class="section-sub">LIC policies offer multi-layered tax benefits under the Income Tax Act.</p>
+    <div class="tax-grid">
+      <div>
+        <div class="tax-list">
+          <div class="tax-item"><div class="icon">📝</div><div><h4>Section 80C — Premium Deduction</h4><p>Premiums paid (up to ₹1,50,000 per year) are deductible from your taxable income. Applicable to most LIC plans including endowment, term and ULIP.</p></div></div>
+          <div class="tax-item"><div class="icon">🎯</div><div><h4>Section 10(10D) — Tax-Free Maturity</h4><p>Maturity and surrender proceeds are completely tax-free, provided annual premium is ≤10% of sum assured (or ≤15% for disabled policyholders).</p></div></div>
+          <div class="tax-item"><div class="icon">💸</div><div><h4>Section 10(10A) — Commuted Pension</h4><p>Commuted (lump sum) pension from LIC pension plans like Jeevan Shanti is exempt from tax for government employees and partially for others.</p></div></div>
+          <div class="tax-item"><div class="icon">👨‍👩‍👧</div><div><h4>Section 80DD / 80DDB</h4><p>Premiums for policies covering a disabled dependant can attract additional deductions under these sections (up to ₹1.25 lakh).</p></div></div>
+          <div class="tax-item"><div class="icon">💰</div><div><h4>Death Claim — Fully Tax Free</h4><p>Amount received by nominee on death of the life assured is completely exempt under Section 10(10D), regardless of the sum assured amount.</p></div></div>
+        </div>
+      </div>
+      <div class="tax-visual">
+        <h4>💡 Illustrative Tax Saving (Old Regime)</h4>
+        <div class="saving-row"><span>Annual Premium Paid</span><span>₹1,50,000</span></div>
+        <div class="saving-row"><span>80C Deduction</span><span>₹1,50,000</span></div>
+        <div class="saving-row"><span>Tax Rate (30% slab)</span><span>30%</span></div>
+        <div class="saving-row"><span>Tax Saved on Premium</span><span>₹45,000</span></div>
+        <div class="saving-row"><span>Cess @ 4%</span><span>₹1,800</span></div>
+        <div class="saving-total"><span>Total Tax Saved</span><span>₹46,800/yr</span></div>
+        <p style="font-size:0.75rem; color:rgba(255,255,255,0.4); margin-top:1rem">* Illustrative. Actual saving depends on income slab, regime (old/new) and deductions claimed. Consult a CA for exact calculation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <span class="section-badge">Contact Us</span>
+    <h2 class="section-title">Let's Talk About<br>Your Future</h2>
+    <p class="section-sub">Reach out by call, WhatsApp, email or fill the form below. We'll respond within 2 hours.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-block">
+          <div class="cb-icon">📱</div>
+          <div>
+            <span class="cb-label">Mobile / WhatsApp</span>
+            <a href="tel:9582278763" class="cb-val">+91 9582278763</a>
+            <div class="cb-sub">Available 9 AM – 8 PM, Mon–Sat</div>
+          </div>
+        </div>
+        <div class="contact-block">
+          <div class="cb-icon">✉️</div>
+          <div>
+            <span class="cb-label">Email</span>
+            <a href="mailto:pradeeplive49@gmail.com" class="cb-val">pradeeplive49@gmail.com</a>
+            <div class="cb-sub">Replies within 24 hours</div>
+          </div>
+        </div>
+        <div class="contact-block">
+          <div class="cb-icon">🏢</div>
+          <div>
+            <span class="cb-label">Branch Office</span>
+            <span class="cb-val" style="font-size:0.92rem">LIC Of India Branch-123 Adarsh Nagar, Near TVS Showroom Metro Station-Adarsh Nagar, Metro Station A-2, near Adarsh Nagar, Delhi, 110033<br>Delhi – 110033</span>
+            <div class="cb-sub">LIC Branch Office</div>
+          </div>
+        </div>
+        <div class="contact-block">
+          <div class="cb-icon">🏠</div>
+          <div>
+            <span class="cb-label">Home Address</span>
+            <span class="cb-val" style="font-size:0.88rem; line-height:1.5">H. No. 947, Street No. 28, B-Block<br>Sant Nagar, Burari, Delhi – 110084</span>
+          </div>
+        </div>
+        <div class="contact-block">
+          <div class="cb-icon">🆔</div>
+          <div>
+            <span class="cb-label">LIC Agency Code</span>
+            <span class="cb-val">12979-123</span>
+            <div class="cb-sub">Life Insurance Corporation of India</div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <h3>Request a Free Consultation</h3>
+        <div class="form-row">
+          <div class="form-group"><label>Your Name *</label><input type="text" placeholder="Full name"></div>
+          <div class="form-group"><label>Mobile Number *</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Age</label><input type="number" placeholder="Your age" min="1" max="99"></div>
+          <div class="form-group"><label>Annual Income</label>
+            <select>
+              <option value="">Select range</option>
+              <option>Under ₹3 Lakh</option>
+              <option>₹3 – ₹6 Lakh</option>
+              <option>₹6 – ₹12 Lakh</option>
+              <option>₹12 – ₹25 Lakh</option>
+              <option>Above ₹25 Lakh</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group"><label>Plan Category of Interest</label>
+          <select>
+            <option value="">Select category</option>
+            <option>Endowment Plans</option>
+            <option>Term Insurance</option>
+            <option>Whole Life Plans</option>
+            <option>Money Back Plans</option>
+            <option>Pension / Annuity</option>
+            <option>ULIP Plans</option>
+            <option>Children's Plans</option>
+            <option>Not Sure – Please Advise</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Your Goal / Message</label>
+          <textarea placeholder="E.g. I want to save ₹50,000/year for my child's education + get life cover of ₹50 lakh..."></textarea>
+        </div>
+        <button class="form-submit" onclick="submitForm()">Send Enquiry to Pradeep Kumar →</button>
+        <p class="form-note">🔒 Your details are private and shared only with your advisor. No spam.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Pradeep Kumar</strong> — LIC Authorised Insurance Advisor | Agency Code: 12979-123</p>
+  <p style="margin-top:6px">Branch: 123, G-1, Model Town, Delhi-110009 &nbsp;|&nbsp; 📱 <a href="tel:9582278763" style="color:var(--gold-light)">9582278763</a> &nbsp;|&nbsp; ✉️ pradeeplive49@gmail.com</p>
+  <p style="margin-top:10px; font-size:0.75rem; color:rgba(255,255,255,0.3)">This is an independent advisor website. LIC of India is a government-owned corporation. All plans are subject to IRDAI regulations. Returns shown are indicative.</p>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/919582278763?text=Hi%20Pradeep%20sir%2C%20I%20want%20to%20know%20more%20about%20LIC%20plans" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">💬</a>
+
+<script>
+const plans = [
+  // ENDOWMENT
+  { cat:'endowment', name:"LIC's New Endowment Plan", planNo:"714", uin:"512N277V03", desc:"A classic participating endowment plan that offers life cover plus savings. Ideal for long-term wealth creation with bonuses.", minAge:"8 yrs", maxAge:"55 yrs", term:"12–35 yrs", minSA:"₹1,00,000", highlights:["Death + maturity benefit","Loan facility after 3 yrs","Bonus participation","Rider options available"] },
+  { cat:'endowment', name:"LIC's New Jeevan Anand", planNo:"715", uin:"512N279V03", desc:"A whole-life endowment plan — offers survival benefit on maturity AND life cover continues for the entire life. Double protection.", minAge:"18 yrs", maxAge:"50 yrs", term:"15–35 yrs", minSA:"₹1,00,000", highlights:["Cover continues after maturity","High bonus accumulation","Loan after 3 yrs","Tax-free maturity"] },
+  { cat:'endowment', name:"LIC's Jeevan Lakshya", planNo:"733", uin:"512N297V03", desc:"Specifically designed for children's goals — education, marriage. Even if the parent dies, premiums are waived and child gets assured benefits.", minAge:"18 yrs", maxAge:"50 yrs", term:"13–25 yrs", minSA:"₹1,00,000", highlights:["Annual survival benefit","Premium waiver on parent's death","Child's future secured","Loan facility"] },
+  { cat:'endowment', name:"LIC's Jeevan Labh Plan", planNo:"736", uin:"512N304V03", desc:"A limited premium paying endowment plan. Pay for a shorter period, enjoy coverage for longer. High returns with bonus participation.", minAge:"8 yrs", maxAge:"59 yrs", term:"16/21/25 yrs", minSA:"₹2,00,000", highlights:["Limited premium payment","Higher bonus rates","Loan facility","Accident benefit rider"] },
+  { cat:'endowment', name:"LIC's Single Premium Endowment", planNo:"717", uin:"512N283V03", desc:"Pay once, enjoy lifelong coverage and assured returns at maturity. Best for lump-sum investors seeking guaranteed growth.", minAge:"90 days", maxAge:"65 yrs", term:"10–25 yrs", minSA:"₹50,000", highlights:["One-time premium","Immediate full coverage","Loan from day 1","High sum assured discount"] },
+  { cat:'endowment', name:"LIC's Amritbaal", planNo:"774", uin:"512N365V02", desc:"A children's endowment plan that secures a child's future milestones — studies, career start. Flexible premium options.", minAge:"0 yrs", maxAge:"13 yrs (child)", term:"Till age 25", minSA:"₹2,00,000", highlights:["Child-specific benefits","Flexible premium terms","Waiver of premium rider","Policy continues on parent's death"] },
+  { cat:'endowment', name:"LIC's Bima Jyoti", planNo:"760", uin:"512N339V03", desc:"A non-linked, non-participating plan with guaranteed additions. Perfect for those wanting predictable, fixed returns without market risk.", minAge:"90 days", maxAge:"60 yrs", term:"15–20 yrs", minSA:"₹1,00,000", highlights:["Guaranteed additions","No market risk","Loan facility","Tax-free maturity"] },
+  { cat:'endowment', name:"LIC's Nav Jeevan Shree", planNo:"912", uin:"512N387V02", desc:"New 2026 endowment plan with enhanced sum assured and competitive bonus rates for long-term savings combined with protection.", minAge:"8 yrs", maxAge:"55 yrs", term:"12–30 yrs", minSA:"₹2,00,000", highlights:["Enhanced death benefit","High bonus rates","Loan facility","Accident & disability rider"] },
+  { cat:'endowment', name:"LIC's Bima Lakshmi", planNo:"881", uin:"512N389V01", desc:"New 2026 plan specially designed for women — offers unique benefits like maturity benefit with extended coverage for women entrepreneurs.", minAge:"18 yrs", maxAge:"55 yrs", term:"15–20 yrs", minSA:"₹2,00,000", highlights:["Women-centric benefits","Extended coverage option","Guaranteed additions","Premium waiver"] },
+
+  // TERM / PROTECTION
+  { cat:'term', name:"LIC's New Jeevan Amar", planNo:"855", uin:"512N311V02", desc:"Pure term insurance plan — maximum life cover at minimum premium. Available offline. Best pure protection plan from LIC.", minAge:"18 yrs", maxAge:"65 yrs", term:"10–40 yrs", minSA:"₹25,00,000", highlights:["Low cost pure protection","Level or increasing cover","Accidental death benefit","No maturity benefit"] },
+  { cat:'term', name:"LIC's Saral Jeevan Bima", planNo:"859", uin:"512N316V01", desc:"A simple, standard term plan designed for easy understanding and purchase. Standardised across all insurers by IRDAI mandate.", minAge:"18 yrs", maxAge:"65 yrs", term:"5–40 yrs", minSA:"₹5L–₹25L", highlights:["Standardised simple plan","Affordable premium","Accidental death rider","Online purchase available"] },
+  { cat:'term', name:"LIC's Tech Term (Online)", planNo:"854", uin:"512N312V01", desc:"LIC's online pure term plan — buy without an agent at low cost. High coverage up to ₹2 crore+ with flexible payout options.", minAge:"18 yrs", maxAge:"65 yrs", term:"10–40 yrs", minSA:"₹50,00,000", highlights:["Online purchase","Low premium","Lump sum or income payout","Return of premium option"] },
+  { cat:'term', name:"LIC's Protection Plus (New)", planNo:"886", uin:"512N--", desc:"New 2025 plan — pure term with return of premium on survival. Combines protection with guaranteed return of all premiums paid.", minAge:"18 yrs", maxAge:"60 yrs", term:"15–30 yrs", minSA:"₹25,00,000", highlights:["Premiums returned on survival","Full life cover","Accident benefit rider","Tax benefit under 80C & 10(10D)"] },
+  { cat:'term', name:"LIC's Bima Kavach (New)", planNo:"887", uin:"512N--", desc:"New 2025 term cum savings plan offering short-term high protection at affordable premiums, ideal for young families.", minAge:"18 yrs", maxAge:"55 yrs", term:"5–15 yrs", minSA:"₹10,00,000", highlights:["High cover low premium","Short-medium term","Rider flexibility","Quick claim settlement"] },
+
+  // WHOLE LIFE
+  { cat:'whole', name:"LIC's Jeevan Umang", planNo:"745", uin:"512N312V03", desc:"Whole life plan with annual survival benefits after premium payment term. Earn regular income for life + lump sum at age 100.", minAge:"90 days", maxAge:"55 yrs", term:"Whole Life (till 100)", minSA:"₹2,00,000", highlights:["Annual 8% SA payout","Coverage till age 100","Loan facility","Ideal for retirement income"] },
+  { cat:'whole', name:"LIC's Jeevan Utsav", planNo:"771", uin:"512N363V02", desc:"A non-linked, non-participating whole life plan with guaranteed additions and flexible survival benefits after premium payment.", minAge:"90 days", maxAge:"65 yrs", term:"Whole Life", minSA:"₹5,00,000", highlights:["Guaranteed additions","Annual income after PPT","Flexible payout option","Tax free income"] },
+  { cat:'whole', name:"LIC's Jeevan Utsav Single Premium", planNo:"883", uin:"512N392V01", desc:"Single premium whole life plan. Pay once, get life cover and regular income for your entire life. Best for lump-sum investors.", minAge:"0 yrs", maxAge:"65 yrs", term:"Whole Life", minSA:"₹5,00,000", highlights:["One-time premium","Lifelong coverage","Annual guaranteed income","Loan from day 1"] },
+
+  // MONEY BACK
+  { cat:'moneyback', name:"LIC's New Money Back Plan 20yr", planNo:"820", uin:"512N277V02", desc:"Classic money-back plan returning 20% of SA every 5 years, plus bonus and full maturity at 20 years. Ideal for periodic cash needs.", minAge:"13 yrs", maxAge:"50 yrs", term:"20 yrs", minSA:"₹1,00,000", highlights:["20% SA every 5 yrs","Bonus + maturity payout","Loan facility","Life cover throughout"] },
+  { cat:'moneyback', name:"LIC's New Money Back Plan 25yr", planNo:"821", uin:"512N278V02", desc:"25-year money-back plan with 15% SA payouts at intervals. Higher total payout and bonus compared to 20yr variant.", minAge:"13 yrs", maxAge:"45 yrs", term:"25 yrs", minSA:"₹1,00,000", highlights:["15% SA at 5-yr intervals","Higher total returns","Bonus participation","Death benefit = full SA"] },
+  { cat:'moneyback', name:"LIC's Jeevan Tarun (Child)", planNo:"834", uin:"512N291V01", desc:"Child money-back plan — parent pays premium, child gets annual payouts from age 20–24 for education/career needs.", minAge:"0 yrs (child)", maxAge:"12 yrs (child)", term:"Till child's age 25", minSA:"₹75,000", highlights:["Annual 5–15% payout","Child's education funded","Premium waiver on parent's death","Flexible payout option"] },
+  { cat:'moneyback', name:"LIC's Bima Bachat", planNo:"816", uin:"512N270V01", desc:"Single premium money back plan with survival benefit payments and guaranteed return of premium at maturity.", minAge:"15 yrs", maxAge:"66 yrs", term:"9 / 12 / 15 yrs", minSA:"₹35,000", highlights:["Single premium","Periodic cash payouts","Guaranteed return","Loan from day 1"] },
+  { cat:'moneyback', name:"LIC's New Children's MB Plan", planNo:"832", uin:"512N289V01", desc:"Comprehensive children's plan with money-back benefits at key milestones — school, college, and career. Continues even if parent dies.", minAge:"0–12 yrs (child)", maxAge:"N/A", term:"Till age 25", minSA:"₹1,00,000", highlights:["Milestone-linked payouts","Premium waiver on parent's death","Bonus participation","Tax benefits"] },
+
+  // PENSION
+  { cat:'pension', name:"LIC's Jeevan Shanti", planNo:"858", uin:"512N315V01", desc:"Immediate and deferred annuity plan — choose between 12 payout options. One-time investment for lifelong guaranteed income.", minAge:"30 yrs", maxAge:"79 yrs", term:"Lifetime", minSA:"₹1,50,000", highlights:["12 annuity options","Guaranteed lifetime income","Joint life option","Purchase price returned on death"] },
+  { cat:'pension', name:"LIC's Jeevan Akshay VII", planNo:"857", uin:"512N314V01", desc:"Immediate annuity plan — invest and start receiving pension immediately. Multiple annuity options for individuals and couples.", minAge:"30 yrs", maxAge:"85 yrs", term:"Lifetime", minSA:"₹1,00,000", highlights:["Immediate pension start","10 annuity variants","Joint life option","Online purchase available"] },
+  { cat:'pension', name:"LIC's New Jeevan Nidhi", planNo:"812", uin:"512N255V01", desc:"Deferred pension plan — accumulate a retirement corpus with bonuses, then convert to regular pension. Ideal for long-term retirement planning.", minAge:"20 yrs", maxAge:"60 yrs", term:"5–35 yrs", minSA:"₹1,00,000", highlights:["Bonus participation","Flexible annuity at maturity","Tax benefit under 80CCC","Death benefit to nominee"] },
+  { cat:'pension', name:"LIC's Saral Pension", planNo:"862", uin:"512N319V01", desc:"Simple immediate annuity with just 2 annuity options — easy to understand, guaranteed income for life, return of purchase price.", minAge:"40 yrs", maxAge:"80 yrs", term:"Lifetime", minSA:"₹12,000/yr annuity", highlights:["Simple 2-option plan","Return of purchase price","Joint life option","Standardised IRDAI plan"] },
+
+  // ULIP
+  { cat:'ulip', name:"LIC's Index Plus", planNo:"873", uin:"512N352V01", desc:"Market-linked ULIP tracking equity index (Nifty 50 / Sensex). Ideal for long-term wealth creation with life cover.", minAge:"0 yrs", maxAge:"60 yrs", term:"10–25 yrs", minSA:"7× annual premium", highlights:["Index-linked returns","4 fund options","Partial withdrawal after 5 yrs","Loyalty additions"] },
+  { cat:'ulip', name:"LIC's SIIP", planNo:"852", uin:"512N309V01", desc:"Systematic investment insurance plan — monthly or annual premiums for equity/balanced fund growth with insurance. Diversified fund options.", minAge:"0 yrs", maxAge:"65 yrs", term:"10–20 yrs", minSA:"10× annual premium", highlights:["4 fund choices","Top-up premium","Partial withdrawal","Annual benchmark return guarantee"] },
+  { cat:'ulip', name:"LIC's Nivesh Plus", planNo:"849", uin:"512N306V01", desc:"Single or limited premium ULIP for lump-sum investors. High equity exposure with life cover. 8 fund options.", minAge:"0 yrs", maxAge:"70 yrs", term:"10–25 yrs", minSA:"1.25× single premium", highlights:["Single or 5-pay","8 fund options","Partial withdrawal","Loan facility after 5 yrs"] },
+  { cat:'ulip', name:"LIC's New Endowment Plus", planNo:"935", uin:"512N377V01", desc:"ULIP-endowment hybrid — market-linked returns with guaranteed minimum death benefit. Balanced for moderate risk investors.", minAge:"0 yrs", maxAge:"60 yrs", term:"10–20 yrs", minSA:"10× annual premium", highlights:["4 fund options","Guaranteed death benefit","Partial withdrawal","Online tracking"] },
+
+  // MICRO
+  { cat:'micro', name:"LIC's Micro Bachat", planNo:"951", uin:"512N392V02", desc:"Micro insurance plan for rural and low-income segments. Low premium, simple savings with life cover for small-ticket investors.", minAge:"18 yrs", maxAge:"55 yrs", term:"5–20 yrs", minSA:"₹5,000 – ₹50,000", highlights:["Very low premium","Simple documentation","Life cover included","Accessible to all"] },
+  { cat:'micro', name:"LIC's Jan Suraksha", planNo:"880", uin:"512N382V01", desc:"New 2026 micro insurance plan for unorganised sector workers and rural families. Basic protection at minimal cost.", minAge:"18 yrs", maxAge:"55 yrs", term:"5–10 yrs", minSA:"₹50,000 – ₹2,00,000", highlights:["Affordable for all","Simple claim process","Death benefit","Group and individual available"] },
+];
+
+function renderPlans(filter='all') {
+  const grid = document.getElementById('plansGrid');
+  grid.innerHTML = '';
+  const catColors = { endowment:'cat-endowment', term:'cat-term', whole:'cat-whole', moneyback:'cat-moneyback', pension:'cat-pension', ulip:'cat-ulip', micro:'cat-micro' };
+  const catLabels = { endowment:'Endowment', term:'Term / Protection', whole:'Whole Life', moneyback:'Money Back', pension:'Pension', ulip:'ULIP', micro:'Micro Insurance' };
+  plans.forEach(p => {
+    if(filter !== 'all' && p.cat !== filter) return;
+    const el = document.createElement('div');
+    el.className = 'plan-card visible';
+    el.innerHTML = `
+      <div class="plan-header">
+        <span class="plan-cat ${catColors[p.cat]}">${catLabels[p.cat]}</span>
+        <div class="plan-name">${p.name}</div>
+        <div class="plan-num">Plan No. ${p.planNo} &nbsp;|&nbsp; UIN: ${p.uin}</div>
+      </div>
+      <div class="plan-body">
+        <p class="plan-desc">${p.desc}</p>
+        <div class="plan-specs">
+          <div class="spec"><span class="spec-label">Entry Age</span><span class="spec-val">${p.minAge} – ${p.maxAge}</span></div>
+          <div class="spec"><span class="spec-label">Policy Term</span><span class="spec-val">${p.term}</span></div>
+          <div class="spec"><span class="spec-label">Min. Sum Assured</span><span class="spec-val">${p.minSA}</span></div>
+          <div class="spec"><span class="spec-label">Category</span><span class="spec-val">${catLabels[p.cat]}</span></div>
+        </div>
+        <div class="plan-highlights">
+          ${p.highlights.map(h=>`<div class="highlight">${h}</div>`).join('')}
+        </div>
+      </div>
+      <div class="plan-footer">
+        <a href="https://wa.me/919582278763?text=Hi%20Pradeep%20sir%2C%20I%20am%20interested%20in%20${encodeURIComponent(p.name)}%20(Plan%20${p.planNo})%2C%20please%20advise." class="plan-enquire" target="_blank">Enquire for This Plan →</a>
+      </div>`;
+    grid.appendChild(el);
+  });
+}
+
+function filterPlans(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderPlans(cat);
+}
+
+function submitForm() {
+  const name = document.querySelector('input[placeholder="Full name"]').value;
+  const phone = document.querySelector('input[placeholder="+91 XXXXX XXXXX"]').value;
+  if(!name || !phone) { alert('Please enter your name and mobile number.'); return; }
+  const msg = `Hi Pradeep sir, my name is ${name} (${phone}). I found your website and want a free consultation on LIC plans. Please contact me.`;
+  window.open(`https://wa.me/919582278763?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+renderPlans('all');
+</script>
+</body>
+</html>
